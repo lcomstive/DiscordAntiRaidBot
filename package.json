@@ -1,0 +1,21 @@
+{
+  "name": "discord-anti-raid-bot",
+  "version": "1.0.0",
+  "description": "Checks for same or similar messages in a discord chat",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "anti-raid",
+    "antiraid",
+    "bot"
+  ],
+  "author": "Klemze#2899",
+  "license": "ISC",
+  "dependencies": {
+    "@madissia/json-reader": "^1.0.3",
+    "discord.js": "^11.5.1"
+  }
+}
