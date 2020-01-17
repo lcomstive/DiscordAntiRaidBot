@@ -7,7 +7,7 @@ Settings.discord = Settings.discord || {}
 Settings.discord.token = Settings.discord.token || ''
 Settings.discord.clientID = Settings.discord.clientID || ''
 Settings.discord.muteRole = Settings.discord.muteRole || 'Jail'
-Settings.ignoreTokens = Settings.ignoreTokens ||[ '.', '<', '>', ':' ]
+Settings.ignoreTokens = Settings.ignoreTokens || [ '.', '<', '>', ':' ]
 
 // Value between 0.6 and 1, percentage of messages to be similar for action to be taken
 Settings.similarityThreshold = Settings.similarityThreshold || 0.75
@@ -15,9 +15,9 @@ if(Settings.similarityThreshold < 0.6) Settings.similarityThreshold = 0.6
 if(Settings.similarityThreshold > 1.0) Settings.similarityThreshold = 1.0
 
 // Minimum amount of similar messages over the threshold needed to take action
-Settings.minSimilarMessages = 3
+Settings.minSimilarMessages = Settings.minSimilarMessages || 3
 // Time, in seconds, for messages to be buffered to check for similar messages
-Settings.messageBufferTime = 60
+Settings.messageBufferTime = Settings.messageBufferTime || 60
 
 Settings.save()
 
