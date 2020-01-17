@@ -8,9 +8,13 @@ if 3 or more messages ([`settings.minSimilarMessages`](#minSimilarMessages)) are
 similar are given a role ([`settings.discord.muteRole`](#discord.muteRole)).
 
 ## Installation
+
+This is made under the assumpmtion you have configured and
+installed [Node.js](https://nodejs.org/)
  
  - Download the source code (*this repository*) and extract it somewhere
  - Open a terminal/command prompt and navigate to the extracted folder
+ - Run `npm i` to install the required packages
  - Run `node .` then wait a few seconds and exit (e.g. via `CTRL+C`)
 	- This sets default settings and makes sure everything runs as intended
  - Create a Discord bot account at [Discord's site](https://discordapp.com/developers/applications/)
