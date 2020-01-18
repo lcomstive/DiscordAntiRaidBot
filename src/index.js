@@ -21,6 +21,13 @@ Settings.messageBufferTime = Settings.messageBufferTime || 60
 
 Settings.save()
 
+// Setup tokens to ignore at the start of messages
+let ignoreTokens = Settings.ignoreTokens
+for(let i = 0; i < ignoreTokens.length; i++)
+	ignoreTokens[i] = (ignoreTokens[i].match(/[a-z]/i) ? '' : '\\') + ignoreTokens[i]
+const IgnoreTokenRegex = new RegExp(`^(${ignoreTokens.join('|')})`)
+
+// Setup Discord client
 const Client = new (require('discord.js')).Client()
 
 let MessageBuffer = []
@@ -84,7 +91,8 @@ Client.on('ready', () =>
 })
 Client.on('message', msg =>
 {
-	if(!msg.cleanContent || Settings.ignoreTokens.includes(msg.cleanContent[0])) // Skip messages with no content, such as image uploads, or specified tokens (e.g. for bots)
+	if(!msg.cleanContent || // Skip messages with no content, such as image uploads
+		msg.cleanContent.match(IgnoreTokenRegex)) // or specified tokens (e.g. for bots)
 		return
 
 	let content = msg.cleanContent.replace(/\W+/, '').toLowerCase()
