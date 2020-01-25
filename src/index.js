@@ -92,7 +92,8 @@ Client.on('ready', () =>
 Client.on('message', msg =>
 {
 	if(!msg.cleanContent || // Skip messages with no content, such as image uploads
-		msg.cleanContent.match(IgnoreTokenRegex)) // or specified tokens (e.g. for bots)
+		msg.author.bot || 	// or if it's a bot account (added by an admin)
+		msg.cleanContent.match(IgnoreTokenRegex)) // or has specified tokens
 		return
 
 	let content = msg.cleanContent.replace(/\W+/, '').toLowerCase()
